@@ -1,0 +1,68 @@
+﻿@model Entities.Concrete.GeneralInformation
+@{
+    ViewData["Title"] = "AdminGeneralInformationUpdate";
+    Layout = "~/Views/Shared/AdminPageLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <div class="ibox ">
+        <div class="ibox-title">
+            <h5>Genel Bilgi Güncelle</h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-wrench"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 2</a>
+                    </li>
+                </ul>
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <form method="post" asp-action="AdminGeneralInformationUpdate" asp-controller="GeneralInformation">
+                <div class="form-group">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <label>Özet İçeriği :</label>
+                            <textarea id="editor1" asp-for="@Model.SummaryContent" class="form-control summernote" cols="5" rows="5"></textarea>
+                            @Html.ValidationMessageFor(x => x.SummaryContent, "", new { @style = "color:red" })
+
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label>Bildiri Değerlendirmesi :</label>
+                            <textarea id="editor2" asp-for="@Model.PaperEvaluation" class="form-control summernote" cols="5" rows="5"></textarea>
+                            @Html.ValidationMessageFor(x => x.PaperEvaluation, "", new { @style = "color:red" })
+
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label>Kurallar :</label>
+                            <textarea id="editor3" asp-for="@Model.Rules" class="form-control summernote" cols="5" rows="5"></textarea>
+                            @Html.ValidationMessageFor(x => x.Rules, "", new { @style = "color:red" })
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="text-center mt-3"> <button type="submit" class="btn btn-xl btn-outline-success w-25 h-25">Genel Bilgi Güncelle</button></div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+

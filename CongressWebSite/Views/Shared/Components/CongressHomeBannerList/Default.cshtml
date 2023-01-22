@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Entities.Concrete.Congress>
+<div class="container-fluid">
+    <div class="owl-banner owl-carousel">
+        @foreach (var item in Model)
+        {
+            <div class="item">
+                <img src="~/images/@item.ImagePath" height="450" alt="">
+                <div class="item-content">
+                    <div class="main-content">
+                        <div class="meta-category">
+                            <span>@item.KongreKonusu</span>
+                        </div>
+                        <a href="/HomePage/CongressDetails/@item.KongreId"><h4>@item.KongreAdi</h4></a>
+                        <ul class="post-info">
+                            <li><a href="#">@item.KongreAdresi</a></li>
+                            <li>Başlangıç - <a href="#">@item.KongreTarihi.ToShortDateString()</a></li>
+                            <li>Bitiş - <a href="#">@item.KongreBitisTarihi.ToShortDateString()</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

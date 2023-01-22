@@ -1,0 +1,76 @@
+﻿@model Entities.Concrete.Announcement
+@{
+    ViewData["Title"] = "AdminAnnouncementAdd";
+    Layout = "~/Views/Shared/AdminPageLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <div class="ibox ">
+        <div class="ibox-title">
+            <h5>Duyuru Ekle </h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-wrench"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 2</a>
+                    </li>
+                </ul>
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <form method="post" asp-action="AdminAnnouncementAdd" asp-controller="Announcement" enctype="multipart/form-data">
+                <div class="form-group">
+
+                    <div class="row m-3">
+                        <div class="col-12">
+                            <label>Duyuru Fotoğrafı Seçin :</label>
+                            <input class="form-control bg-dark" type="file" asp-for="@Model.ImagePath" id="formFileMultiple" multiple required>
+                        </div>
+                    
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-6">
+                            <label>Duyuru Başlığı :</label>
+                            <input type="text" class="form-control" asp-for="@Model.AnnounceTitle"  required />
+                        </div>
+                        <div class="col-6">
+                            <label>Duyuru Tarihi :</label>
+                            <input  type="datetime-local" asp-for="@Model.AnnounceDate" class="form-control" required />
+                        </div>
+                      
+                    </div>
+
+
+
+         
+
+                    <div class="col-lg-12 mb-4">
+                        <label>Duyuru Açıklaması :</label>
+                        <textarea asp-for="@Model.AnnounceContent" cols="200" class="form-control summernote"></textarea>
+                    </div>
+
+                    <div class="text-center"> <button type="submit"  class="btn btn-xl btn-outline-success w-25 h-25">Duyuru Ekle</button></div>
+                </div>
+
+
+            </form>
+        </div>
+
+
+    </div>
+</div>
+
+

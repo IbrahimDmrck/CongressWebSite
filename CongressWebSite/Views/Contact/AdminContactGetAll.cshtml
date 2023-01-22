@@ -1,0 +1,59 @@
+﻿@using Entities.Concrete
+@model List<Contact>
+@{
+    ViewData["Title"] = "AdminContactGetAll";
+    Layout = "~/Views/Shared/AdminPageLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <div class="ibox ">
+        <div class="ibox-title">
+            <h5>Gelen Mesajlar</h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-wrench"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 2</a>
+                    </li>
+                </ul>
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <table class="table table-hover text-center dataTables-example">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Gönderen Ad-Soyad</th>
+                        <th>Gönderen E-posta</th>
+                        <th>Mesaj</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td><b>@item.Id</b></td>
+                            <td>@item.NameSurname</td>
+                            <td>@item.Email</td>
+                            <td>@item.Message.Substring(0, 1) ...</td>
+                            <td><a href="/Contact/AdminDeleteContact/@item.Id" role="button" class="btn btn-outline-danger">Sil</a> <a href="/Contact/AdminGetByIdContact/@item.Id" role="button" class="btn btn-info">Detay</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

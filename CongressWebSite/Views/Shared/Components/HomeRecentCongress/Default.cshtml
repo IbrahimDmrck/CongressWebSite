@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Entities.Concrete.Congress>
+
+    <div class="col-lg-12">
+        <div class="sidebar-item recent-posts">
+            <div class="sidebar-heading">
+                <h2>Son Yapılan Kongreler</h2>
+            </div>
+            <div class="content">
+                <ul>
+                    @foreach (var item in Model.OrderByDescending(x=>x.KongreId).Take(3))
+                    {
+                        <li>
+                            <a href="/HomePage/CongressDetails/@item.KongreId">
+                                <h5>@item.KongreAdi</h5>
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>

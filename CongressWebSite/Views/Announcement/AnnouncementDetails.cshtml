@@ -1,0 +1,15 @@
+﻿@model Entities.Concrete.Announcement
+@{
+    ViewData["Title"] = "AnnouncementDetails";
+    Layout = "~/Views/Shared/Announcements.cshtml";
+}
+
+<div class="about-us">
+    <div class="col-lg-12">
+        <img src="~/images/@Model.ImagePath" alt="">
+        <h3 class="m-4">@Model.AnnounceTitle</h3>
+        <p>@Html.Raw(Model.AnnounceContent)</p>
+        <span>@Model.AnnounceDate.ToShortDateString()</span>
+    </div>
+
+</div>

@@ -1,0 +1,72 @@
+﻿@model Entities.Concrete.Congress
+@{
+    ViewData["Title"] = "CongressDetails";
+    Layout = "~/Views/Shared/HomePageLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <div class="all-blog-posts">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="blog-post">
+                    <div class="blog-thumb">
+                        <img src="~/images/@Model.ImagePath" alt="">
+                    </div>
+                    <div class="down-content">
+                        <span>@Model.KongreAdi</span>
+                        <a href="post-details.html"><h4>@Model.KongreAdresi</h4></a>
+                        <ul class="post-info">
+                            <li><a href="#">@Model.KongreAdresi</a></li>
+                            <li><a href="#">@Model.KongreTarihi.ToShortDateString()</a></li>
+                            <li><a href="#">@Model.KongreBitisTarihi.ToShortDateString()</a></li>
+                        </ul>
+                        <p>
+                            @Html.Raw(Model.KongreHakkinda)
+
+                        </p>
+                        <div class="col-lg-12 mb-4">
+                            <h3>Kongre Başkanı</h3>
+                            <li class="list-group-item mt-4">@Model.KongreBaskani</li>
+                        </div>
+                        <div class="col-lg-12 mb-4">
+                            <h3>Düzenleme Kurulu</h3>
+                            @Html.Raw(Model.KongreDuzenlemeKurulu)
+                        </div>
+                        <div class="col-lg-12 mb-4">
+                            <h3>Bilim Kurulu</h3>
+                            @Html.Raw(Model.BilimKurulu)
+                        </div>
+                        <div class="col-lg-12">
+                            <h3 class="mb-2">Kongre Konusu</h3>
+                            <li class="list-group-item mb-4"> @Html.Raw(Model.KongreKonusu)</li>
+                        </div>
+                        <div class="col-lg-12">
+                            <h3 class="mb-2">Kongre Alt Konuları</h3>
+                             @Html.Raw(Model.KongreAltKonu)
+                        </div>
+                        <div class="post-options">
+                            <div class="row">
+                                <div class="col-6">
+                                    <ul class="post-tags">
+                                        <li></li>
+                                        <li><a href="#"></a></li>
+                                        <li><a href="#"></a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-6">
+                                    <ul class="post-share">
+                                        <li><i class="fa fa-share-alt"></i></li>
+                                        <li><a href="#">Facebook</a>,</li>
+                                        <li><a href="#"> Twitter</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

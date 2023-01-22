@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Entities.Concrete.AdminContactInfo>
+<div class="sidebar-item contact-information">
+    <div class="sidebar-heading">
+        <h2>İletişim Bilgileri</h2>
+    </div>
+    <div class="content">
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>
+                    <h5>@item.PhoneNumber</h5>
+                    <span>Telefon Numarası</span>
+                </li>
+                <li>
+                    <h5>@item.Email</h5>
+                    <span>E-posta Adresi</span>
+                </li>
+                <li>
+                    <h5>
+
+                        @item.Address
+                    </h5>
+                    <span>Adres</span>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

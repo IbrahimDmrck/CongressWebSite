@@ -1,0 +1,56 @@
+﻿@using Entities.Concrete
+@model List<Save>
+@{
+    ViewData["Title"] = "SaveGetAll";
+    Layout = "~/Views/Shared/GeneralInfo.cshtml";
+}
+
+<div class="row">
+
+    @await Component.InvokeAsync("TrBankAccountInfoList")
+    @foreach (var item in Model)
+    {
+
+        <table style="margin-top: 70px; font-size:20px;background-color:rgb(60, 60, 188);" class="table table-bordered text-white">
+            <tbody *ngFor="let save of saves">
+                <tr>
+                    <th></th>
+                    <td>YSU Üyesi Olan</td>
+                    <td>YSU Üyesi Olmayan</td>
+                </tr>
+                <tr>
+
+                <tr>
+                    <th>Video Konferans (Sanal Sunum) Ücreti</th>
+                    <td>@item.VideoConferenceMemberPrice</td>
+                    <td>@item.VideoConferenceNonMemberPrice</td>
+                </tr>
+                <tr>
+                    <th>Sözlü ya da Poster Sunum Ücreti</th>
+                    <td>@item.OralPresentationMemberPrice</td>
+                    <td>@item.OralPresentationNonMemberPrice</td>
+                </tr>
+
+                <tr>
+
+
+            </tbody>
+        </table>
+
+
+        <div class="col-lg-12">
+            <h3>Açıklama :</h3>
+            <p>@Html.Raw(item.Description)</p>
+        </div>
+        <div class="col-lg-12">
+            <h3>Video Konferans (Sanal Sunum) :</h3>
+            <p>@Html.Raw(item.VideoConferenceDescription)</p>
+        </div>
+        <div class="col-lg-12">
+            <h3>Katılım Ücretine Dahil Olan Hizmetler :</h3>
+            <p>@Html.Raw(item.ParticipationPriceServiceAdditionDescription)</p>
+        </div>
+    }
+
+</div>
+

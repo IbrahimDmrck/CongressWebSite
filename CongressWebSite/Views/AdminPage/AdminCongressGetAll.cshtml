@@ -1,0 +1,75 @@
+﻿@using Entities.Concrete
+@model List<Congress>
+@{
+    ViewData["Title"] = "AdminCongressGetAll";
+    Layout = "~/Views/Shared/AdminPageLayout.cshtml";
+}
+
+
+
+
+<div class="col-lg-12">
+    <div class="ibox ">
+        <div class="ibox-title">
+            <h5>Kongreler </h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-wrench"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 2</a>
+                    </li>
+                </ul>
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <table class="table table-hover text-center dataTables-example">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Fotoğraf</th>
+                        <th>Konger Başkanı</th>
+                        <th>Düzenleme Kurulu</th>
+                        <th>Bilim Kurulu</th>
+                        <th>Konu</th>
+                        <th>Kongre Adı</th>
+                        <th>Adres</th>
+                        <th>Açıklama</th>
+                        <th>Başlangıç</th>
+                        <th>Bitiş</th>
+                        <th><a href="/AdminPage/AdminCongressAdd" role="button" class="btn btn-outline-primary">Ekle</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td><b>@item.KongreId</b></td>
+                            <td><a href="~/images/@item.ImagePath"><img src="~/images/@item.ImagePath" width="100" height="100" /></a></td>
+                            <td>@item.KongreBaskani</td>
+                            <td>@item.KongreDuzenlemeKurulu.Substring(0, 1)</td>
+                            <td>@item.BilimKurulu.Substring(0, 1)</td>
+                            <td>@item.KongreKonusu</td>
+                            <td>@item.KongreAdi</td>
+                            <td>@item.KongreAdresi</td>
+                            <td>@item.KongreHakkinda.Substring(0, 1)</td>
+                            <td>@item.KongreTarihi.ToShortDateString()</td>
+                            <td>@item.KongreBitisTarihi.ToShortDateString()</td>
+                            <td><a href="/AdminPage/AdminCongressDelete/@item.KongreId" role="button" class="btn btn-outline-danger">Sil</a> <a href="/AdminPage/AdminCongressUpdate/@item.KongreId" role="button" class="btn btn-outline-warning">Güncelle</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

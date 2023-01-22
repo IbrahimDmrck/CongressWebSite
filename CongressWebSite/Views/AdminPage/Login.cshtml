@@ -1,0 +1,53 @@
+﻿@model Entities.Concrete.Admin
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INSPINIA | Login</title>
+
+    <link href="~/Admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Admin/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="~/Admin/css/animate.css" rel="stylesheet">
+    <link href="~/Admin/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="middle-box text-center  animated fadeInDown">
+            <div class="text-center"> <h2 >ADMİN</h2></div>
+        <div>
+           
+          
+            <p>Giriş Yapın</p>
+            <form class="m-t" role="form" method="post" action="/AdminPage/Login">
+                <div class="form-group">
+                    <input type="email" asp-for="@Model.Email" class="form-control" placeholder="Username" required="">
+                </div>
+                <div class="form-group">
+                    <input type="password" asp-for="@Model.Password" class="form-control" placeholder="Password" required="">
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">Login</button>                
+            </form>
+         
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="~/Admin/js/jquery-3.1.1.min.js"></script>
+    <script src="~/Admin/js/popper.min.js"></script>
+    <script src="~/Admin/js/bootstrap.js"></script>
+
+</body>
+
+</html>
+

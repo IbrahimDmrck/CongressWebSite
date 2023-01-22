@@ -1,0 +1,108 @@
+﻿@model Entities.Concrete.Congress
+@{
+    ViewData["Title"] = "AdminCongressAdd";
+    Layout = "~/Views/Shared/AdminPageLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <div class="ibox ">
+        <div class="ibox-title">
+            <h5>Kongre Ekle </h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-wrench"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 2</a>
+                    </li>
+                </ul>
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <form method="post" asp-action="AdminCongressAdd" asp-controller="AdminPage" enctype="multipart/form-data">
+                <div class="form-group">
+                  
+                    <div class="row mb-3">
+                        <div class="col-3">
+                            <label>Kongre Fotoğrafı Seçin :</label>
+                            <input class="form-control bg-dark" type="file" asp-for="@Model.ImagePath" id="formFileMultiple" multiple required>
+                        </div>
+                        <div class="col-3">
+                            <label>Kongre Adresi :</label>
+                            <input type="text" class="form-control" asp-for="@Model.KongreAdresi" placeholder="Kongre Adresi" required />
+                        </div>
+                        <div class="col-3">
+                            <label>Kongre Adı :</label>
+                            <input type="text" asp-for="@Model.KongreAdi" class="form-control" placeholder="Kongre Adı" required />
+                        </div>
+                        <div class="col-3">
+                            <label>Kongre Başkanı :</label>
+                            <input type="text" asp-for="@Model.KongreBaskani" class="form-control" placeholder="Kongre Başkanı" required />
+                        </div>
+                    </div>
+                        
+                   
+                    <div class="row mb-3">
+                        <div class="col-4">
+                            <label>Kongre Konusu :</label>
+
+                            <input type="text" asp-for="@Model.KongreKonusu" class="form-control " placeholder="Kongre Konusu" required />
+                        </div>
+
+                        <div class="col-4">
+                            <label>Kongre Başlangıç Tarihi :</label>
+                            <input id="KongreTarihi" type="datetime-local" asp-for="@Model.KongreTarihi" class="form-control" required />
+                        </div>
+                        <div class="col-4">
+                            <label>Kongre Bitiş Tarihi :</label>
+                            <input id="KongreBitisTarihi" type="datetime-local" asp-for="@Model.KongreBitisTarihi" class="form-control" required />
+                        </div>
+                    </div>
+                    
+
+                  
+                        <div class="row mb-3 mt-3">
+                            <div class="col-12">
+                                <label>Kongre Düzenleme Kurulu :</label>
+                               
+                                <textarea id="editor1" asp-for="@Model.KongreDuzenlemeKurulu" class="form-control summernote" cols="5" rows="5"></textarea>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <label>Kongre Bilim Kurulu :</label>
+                                <textarea id="editor2" asp-for="@Model.BilimKurulu" class="form-control summernote" cols="5" rows="5"></textarea>
+                              
+                            </div>
+                         
+                            <div class="col-12 mt-3">
+                                <label>Kongre Alt Konuları :</label>
+                                <textarea id="editor3" asp-for="@Model.KongreAltKonu" class="form-control summernote" cols="5" rows="5"></textarea>
+                            </div>
+                        </div>
+                
+
+                        <div class="col-lg-12 mb-4 mt-3">
+                            <label>Kongre Açıklaması :</label>
+                            <textarea id="editor4" asp-for="@Model.KongreHakkinda" class="form-control summernote" cols="5" rows="5"></textarea>
+                        </div>
+
+                    <div  class="text-center "> <button type="submit" class="btn btn-xl btn-success">Kongre Ekle</button></div>
+                </div>
+
+
+            </form>
+        </div>
+
+
+    </div>
+</div>
+

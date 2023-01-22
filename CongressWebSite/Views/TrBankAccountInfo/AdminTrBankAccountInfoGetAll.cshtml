@@ -1,0 +1,64 @@
+﻿@using Entities.Concrete
+@model List<TrBankAccountInfo>
+@{
+    ViewData["Title"] = "AdminTrBankAccountInfoGetAll";
+    Layout = "~/Views/Shared/AdminPageLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <div class="ibox ">
+        <div class="ibox-title">
+            <h5>Türkiye Banka Hesap Bilgileri</h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-wrench"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 2</a>
+                    </li>
+                </ul>
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <table class="table table-hover text-center dataTables-example">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>IBAN</th>
+                        <th>Hesap Adı</th>
+                        <th>Banka Adı</th>
+                        <th>Açıklama1</th>
+                        <th>Açıklama2</th>
+                        <th><a href="/TrBankAccountInfo/AdminTrBankAccountInfoAdd" role="button" class="btn btn-outline-primary">Ekle</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td><b>@item.Id</b></td>
+                            <td>@item.Iban</td>
+                            <td>@item.AccountName</td>
+                            <td>@item.BankName</td>
+                            <td>@item.Description1.Substring(0, 20) ...</td>
+                            <td>@item.Description2.Substring(0, 20) ...</td>
+                            <td><a href="/TrBankAccountInfo/AdminTrBankAccountInfoDelete/@item.Id" role="button" class="btn btn-outline-danger">Sil</a> <a href="/TrBankAccountInfo/AdminTrBankAccountInfoUpdate/@item.Id" role="button" class="btn btn-outline-warning">Güncelle</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

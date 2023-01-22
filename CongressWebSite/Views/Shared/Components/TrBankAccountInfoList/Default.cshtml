@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Entities.Concrete.TrBankAccountInfo>
+
+
+<table class="table bg-dark table-hover text-white">
+    <thead>
+        <tr>
+            <th><b>IBAN</b></th>
+            <th><b>Hesap Adı</b></th>
+            <th><b>Banka Adı</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Iban</td>
+                <td>@item.AccountName</td>
+                <td>@item.BankName</td>
+            </tr>
+
+            <caption>@Html.Raw(item.Description1)</caption>
+        }
+    </tbody>
+
+</table>
+
+

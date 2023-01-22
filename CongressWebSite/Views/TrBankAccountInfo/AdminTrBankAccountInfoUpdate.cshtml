@@ -1,0 +1,79 @@
+﻿@model Entities.Concrete.TrBankAccountInfo
+@{
+    ViewData["Title"] = "AdminTrBankAccountInfoUpdate";
+    Layout = "~/Views/Shared/AdminPageLayout.cshtml";
+}
+
+
+<div class="col-lg-12">
+    <div class="ibox ">
+        <div class="ibox-title">
+            <h5>Türkiye Banka Hesap Bilgisi Ekle</h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-wrench"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 2</a>
+                    </li>
+                </ul>
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <form method="post" asp-action="AdminTrBankAccountInfoUpdate" asp-controller="TrBankAccountInfo">
+                <div class="form-group">
+
+                    <div class="row">
+                        <div class="col-4">
+                            <label>IBAN :</label>
+                            <input type="text" class="form-control " asp-for="@Model.Iban" required />
+                            @Html.ValidationMessageFor(x => x.Iban, "", new { @style = "color:red" })
+                        </div>
+                        <div class="col-4">
+                            <label>Hesap Numarası :</label>
+                            <input type="text" asp-for="@Model.AccountName" class="form-control " required />
+                            @Html.ValidationMessageFor(x => x.AccountName, "", new { @style = "color:red" })
+                        </div>
+                        <div class="col-4">
+                            <label>Banka Adı :</label>
+                            <input type="text" asp-for="@Model.BankName" class="form-control " required />
+                            @Html.ValidationMessageFor(x => x.BankName, "", new { @style = "color:red" })
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            <label>Açıklama-1 :</label>
+                            <textarea id="editor1" asp-for="@Model.Description1" class="form-control summernote" cols="5" rows="5"></textarea>
+                            @Html.ValidationMessageFor(x => x.Description1, "", new { @style = "color:red" })
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label>Açıklama-2 :</label>
+                            <textarea id="editor2" asp-for="@Model.Description2" class="form-control summernote" cols="5" rows="5"></textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="text-center mt-3"> <button type="submit" class="btn btn-xl btn-outline-success w-25 h-25">Tr Banka Bilgisi Ekle</button></div>
+                </div>
+
+
+            </form>
+        </div>
+
+
+    </div>
+</div>
+

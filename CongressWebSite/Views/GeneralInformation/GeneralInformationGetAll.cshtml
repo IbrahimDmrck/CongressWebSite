@@ -1,0 +1,26 @@
+﻿@using Entities.Concrete
+@model List<GeneralInformation>
+@{
+    ViewData["Title"] = "GeneralInformationGetAll";
+    Layout = "~/Views/Shared/GeneralInfo.cshtml";
+}
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-12">
+            <h3>Özet İçeriği</h3>
+            <p>@Html.Raw(item.SummaryContent)</p>
+        </div>
+        <div class="col-lg-12">
+            <h3>Bildiri Değerlendirmesi</h3>
+            <p>@Html.Raw(item.PaperEvaluation)</p>
+        </div>
+        <div class="col-lg-12">
+            <h3>Kurallar</h3>
+            <p>@Html.Raw(item.Rules)</p>
+        </div>
+    }
+
+</div>

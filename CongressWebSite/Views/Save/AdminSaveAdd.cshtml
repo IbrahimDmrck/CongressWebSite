@@ -1,0 +1,86 @@
+﻿@model Entities.Concrete.Save
+@{
+    ViewData["Title"] = "AdminSaveAdd";
+    Layout = "~/Views/Shared/AdminPageLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <div class="ibox ">
+        <div class="ibox-title">
+            <h5>Kayıt Bilgileri</h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-wrench"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 2</a>
+                    </li>
+                </ul>
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <form method="post" asp-action="AdminSaveAdd" asp-controller="Save">
+                <div class="form-group">
+
+                    <div class="row">
+                        <div class="col-6">
+                            <label>Video Konferans Üye Fiyatı :</label>
+                            <input type="text" class="form-control " asp-for="@Model.VideoConferenceMemberPrice" required />
+                            @Html.ValidationMessageFor(x => x.VideoConferenceMemberPrice, "", new { @style = "color:red" })
+                        </div>
+                        <div class="col-6">
+                            <label>Video Konferans Üye Olmayan Fiyatı :</label>
+                            <input type="text" asp-for="@Model.VideoConferenceNonMemberPrice" class="form-control " required />
+                            @Html.ValidationMessageFor(x => x.VideoConferenceNonMemberPrice, "", new { @style = "color:red" })
+                        </div>
+                        <div class="col-6 mt-3">
+                            <label>Sözlü Sunum Üye Fiyatı :</label>
+                            <input type="text" asp-for="@Model.OralPresentationMemberPrice" class="form-control " required />
+                            @Html.ValidationMessageFor(x => x.OralPresentationMemberPrice, "", new { @style = "color:red" })
+                        </div>
+                        <div class="col-6 mt-3">
+                            <label>Sözlü Sunum Üye Olmayan Fiyatı :</label>
+                            <input type="text" asp-for="@Model.OralPresentationNonMemberPrice" class="form-control " required />
+                            @Html.ValidationMessageFor(x => x.OralPresentationNonMemberPrice, "", new { @style = "color:red" })
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-12 mt-3">
+                        <label>Video Konferans Açıklaması</label>
+                        <textarea id="editor1" asp-for="@Model.VideoConferenceDescription" class="form-control summernote" required></textarea>
+                        @Html.ValidationMessageFor(x => x.VideoConferenceDescription, "", new { @style = "color:red" })
+
+                    </div>
+                    <div class="col-lg-12 mt-3">
+                        <label>Kayıta Ek Olan Hizmetler</label>
+                        <textarea id="editor2" asp-for="@Model.ParticipationPriceServiceAdditionDescription" class="form-control summernote" required></textarea>
+                        @Html.ValidationMessageFor(x => x.ParticipationPriceServiceAdditionDescription, "", new { @style = "color:red" })
+
+                    </div>
+                    <div class="col-lg-12 mt-3">
+                        <label>Açıklama</label>
+                        <textarea id="editor3" asp-for="@Model.Description" class="form-control summernote" required></textarea>
+                        @Html.ValidationMessageFor(x => x.Description, "", new { @style = "color:red" })
+
+                    </div>
+
+                    <div class="text-center mt-3"> <button type="submit" class="btn btn-xl btn-outline-success w-25 h-25">Kayıt Bilgisi Ekle</button></div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,57 @@
+﻿@using Entities.Concrete
+@model List<TransportLayover>
+@{
+    ViewData["Title"] = "TransportLayoversGetAll";
+    Layout = "~/Views/Shared/HomePageLayout.cshtml";
+}
+
+<div class="col-lg-8">
+    <div class="all-blog-posts">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+
+                <div class="col-lg-12">
+                    <div class="blog-post">
+                        <div class="blog-thumb">
+                            <img src="~/images/@item.ImagePath" alt="">
+                        </div>
+                        <div class="down-content">
+                            <span>@item.MinDemand</span>
+                            <a href="#"><h4>@item.Price</h4></a>
+                            <ul class="post-info">
+                                <li>Kapasite - <a href="#">@item.Capacity</a> - Kişi</li>
+                            
+                            </ul>
+                            <p> @Html.Raw(item.Description)</p>
+                            <div class="post-options">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="post-tags">
+                                            <li><i class="fa fa-tags"></i></li>
+                                            <li><a href="#">@item.MinDemand</a></li>
+                                           
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul class="post-share">
+                                            <li><i class="fa fa-share-alt"></i></li>
+                                            <li><a href="#">Facebook</a></li>
+                                            <li><a href="#"> Twitter</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+     
+        </div>
+    </div>
+</div>
+
+
+

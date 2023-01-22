@@ -1,0 +1,65 @@
+﻿@model Entities.Concrete.Contact
+@{
+    ViewData["Title"] = "AdminGetByIdContact";
+    Layout = "~/Views/Shared/AdminPageLayout.cshtml";
+}
+
+
+<div class="col-lg-12">
+    <div class="ibox ">
+        <div class="ibox-title">
+            <h5>Gelen Mesaj</h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-wrench"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 2</a>
+                    </li>
+                </ul>
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <form method="Get" asp-action="AdminGetByIdContact" asp-controller="Contact">
+                <div class="form-group">
+
+                    <div class="row">
+                        <div class="col-6">
+                            <label>Ad - Soyad :</label>
+                            <input type="text" class="form-control" asp-for="NameSurname" readonly />
+                        </div>
+                        <div class="col-6">
+                            <label>E-posta :</label>
+                            <input type="text" asp-for="@Model.Email" class="form-control" readonly />
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-12 mb-4 mt-4">
+                        <label><h3><b>Mesaj :</b></h3></label><br />
+                        @Html.Raw(Model.Message)
+                        
+                    </div>
+
+                    <div class="text-center"> <a href="/Contact/AdminContactGetAll" class="btn btn-xl btn-primary w-25 h-25">Geri Dön</a></div>
+                </div>
+
+
+            </form>
+        </div>
+
+
+    </div>
+</div>
+

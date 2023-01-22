@@ -1,0 +1,27 @@
+﻿@using Entities.Concrete
+@model List<Announcement>
+@{
+    ViewData["Title"] = "AnnouncementGetAll";
+    Layout = "~/Views/Shared/Announcements.cshtml";
+}
+
+@foreach (var item in Model.OrderByDescending(x=>x.Id))
+{
+    <div class="col-lg-4">
+        <div class="blog-post">
+            <div class="blog-thumb">
+                <img src="~/images/@item.ImagePath" alt="">
+            </div>
+            <div class="down-content">
+                
+                <a href="/Announcement/AnnouncementDetails/@item.Id"><h4>@item.AnnounceTitle</h4></a>
+                <ul class="post-info">
+                    <li><a href="#">@item.AnnounceDate.ToShortDateString()</a></li>
+                </ul>
+              
+   
+            </div>
+        </div>
+    </div>
+
+}

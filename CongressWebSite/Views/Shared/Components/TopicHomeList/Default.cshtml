@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Entities.Concrete.Congress>
+<div class="col-lg-12">
+    <div class="sidebar-item categories">
+        <div class="sidebar-heading">
+            <h2>Konular</h2>
+        </div>
+        <div class="content">
+            <ul>
+                @foreach (var item in Model.OrderByDescending(x=>x.KongreId).Take(10))
+                {
+                    <li><a href="#">- @item.KongreKonusu</a></li>
+                }
+
+            </ul>
+        </div>
+    </div>
+</div>

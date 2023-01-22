@@ -1,0 +1,61 @@
+﻿@using Entities.Concrete
+@model List<GeneralInformation>
+@{
+    ViewData["Title"] = "AdminGeneralInformationGetAll";
+    Layout = "~/Views/Shared/AdminPageLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <div class="ibox ">
+        <div class="ibox-title">
+            <h5>Genel Bilgiler</h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-wrench"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 2</a>
+                    </li>
+                </ul>
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <table class="table table-hover text-center dataTables-example">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Özet İçeriği</th>
+                        <th>Bildiri Değerlendirmesi</th>
+                        <th>Kurallar</th>
+                        <th><a href="/GeneralInformation/AdminGeneralInformationAdd" role="button" class="btn btn-outline-primary">Ekle</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td><b>@item.Id</b></td>
+                            <td>@item.SummaryContent.Substring(0,3) ...</td>
+                            <td>@item.PaperEvaluation.Substring(0, 3) ...</td>
+                            <td>@item.Rules.Substring(0, 3) ...</td>
+                            <td><a href="/GeneralInformation/AdminGeneralInformationDelete/@item.Id" role="button" class="btn btn-outline-danger">Sil</a> <a href="/GeneralInformation/AdminGeneralInformationUpdate/@item.Id" role="button" class="btn btn-outline-warning">Güncelle</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
