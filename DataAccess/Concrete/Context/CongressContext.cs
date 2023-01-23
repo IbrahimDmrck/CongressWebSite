@@ -14,7 +14,7 @@ namespace DataAccess.Concrete.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseMySql("server=localhost;port=3306;user=icontren_icontrendsdb;password=@40Bv12va-*1;database=icontren_icontrendsdb")
+            optionsBuilder.UseMySql("server=localhost;port=3306;user=your_database_username;password=your_database_password;database=your_database_name")
                 .UseLoggerFactory(LoggerFactory.Create(b => b
                  .AddFilter(level => level >= LogLevel.Information))).EnableSensitiveDataLogging().EnableDetailedErrors();
         }
